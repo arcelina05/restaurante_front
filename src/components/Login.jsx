@@ -9,7 +9,7 @@ const Login = ({ callback }) => {
 
     const validateUser = (event) => {
         event.preventDefault();
-        fetch(`http://localhost:4000/v1/restaurante/login`, {
+        fetch(`https://restaurante-back.vercel.app/v1/restaurante/login`, {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ username, password })

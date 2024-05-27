@@ -30,7 +30,7 @@ function AdminHome({ user }) {
     // Inicio Funciones seccion de productos
     // Cargar todos los productos del json
     const cargarProductos = async () => {
-        let data = await fetch('http://localhost:4000/v1/restaurante/productos/listar')
+        let data = await fetch('https://restaurante-back.vercel.app/v1/restaurante/productos/listar')
             .then(data => data.json())
             .then(res => res)
 
@@ -48,7 +48,7 @@ function AdminHome({ user }) {
 
     // Eliminar producto
     const eliminarProducto = async (producto) => {
-        fetch(`http://localhost:4000/v1/restaurante/productos/eliminar-producto/${producto._id}`, {
+        fetch(`https://restaurante-back.vercel.app/v1/restaurante/productos/eliminar-producto/${producto._id}`, {
             'method': 'DELETE',
             'headers': {
                 'Content-Type': 'application/json'
@@ -67,10 +67,10 @@ function AdminHome({ user }) {
         e.preventDefault();
 
         // Como se utiliza la misma funcion para crear y actualziar se hace una validacion para saber a que ruta tiene que apuntar cuando se enviar
-        let ruta_post = `http://localhost:4000/v1/restaurante/productos/crear-producto`;
+        let ruta_post = `https://restaurante-back.vercel.app/v1/restaurante/productos/crear-producto`;
         let method = 'POST';
         if (accionProducto == 'actualizar') {
-            ruta_post = `http://localhost:4000/v1/restaurante/productos/actualizar-producto/${productoSeleccionado._id}`;
+            ruta_post = `https://restaurante-back.vercel.app/v1/restaurante/productos/actualizar-producto/${productoSeleccionado._id}`;
             method = 'PUT';
         }
 
@@ -104,7 +104,7 @@ function AdminHome({ user }) {
 
     // Inicio funciones para seccion usuarios
     const cargarUsuarios = async () => {
-        let data = await fetch('http://localhost:4000/v1/restaurante/usuarios/listar')
+        let data = await fetch('https://restaurante-back.vercel.app/v1/restaurante/usuarios/listar')
             .then(data => data.json())
             .then(res => res)
         setUsuarios(data)
@@ -119,7 +119,7 @@ function AdminHome({ user }) {
         setAccionUsuario("actualizar")
     }
     const eliminarUsuario = async (usuario) => {
-        fetch(`http://localhost:4000/v1/restaurante/usuarios/eliminar-usuario/${usuario._id}`, {
+        fetch(`https://restaurante-back.vercel.app/v1/restaurante/usuarios/eliminar-usuario/${usuario._id}`, {
             'method': 'DELETE',
             'headers': {
                 'Content-Type': 'application/json'
@@ -137,10 +137,10 @@ function AdminHome({ user }) {
         e.preventDefault();
 
         // se hace una validacion para saber a que ruta tiene que apuntar cuando se enviar ya que se usa la misma funcion para crear y acrualizar
-        let ruta_post = `http://localhost:4000/v1/restaurante/usuarios/crear-usuario`;
+        let ruta_post = `https://restaurante-back.vercel.app/v1/restaurante/usuarios/crear-usuario`;
         let method = 'POST';
         if (accionUsuario == 'actualizar') {
-            ruta_post = `http://localhost:4000/v1/restaurante/usuarios/actualizar-usuario/${usuarioSeleccionado._id}`;
+            ruta_post = `https://restaurante-back.vercel.app/v1/restaurante/usuarios/actualizar-usuario/${usuarioSeleccionado._id}`;
             method = 'PUT';
         }
 

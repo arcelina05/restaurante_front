@@ -24,7 +24,7 @@ function MeseroHome({ user }) {
     ]
 
     const cargarProductos = async () => {
-        let data = await fetch('http://localhost:4000/v1/restaurante/productos/listar')
+        let data = await fetch('https://restaurante-back.vercel.app/v1/restaurante/productos/listar')
             .then(data => data.json())
             .then(res => res)
 
@@ -83,7 +83,7 @@ function MeseroHome({ user }) {
             pedido: productosSeleccionados
         }
 
-        fetch(`http://localhost:4000/v1/restaurante//pedidos/crear-pedido`, {
+        fetch(`https://restaurante-back.vercel.app/v1/restaurante//pedidos/crear-pedido`, {
             'method': 'POST',
             'body': JSON.stringify(pedido),
             'headers': {

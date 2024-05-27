@@ -11,7 +11,7 @@ function CocinaHome({ user }) {
   const home = useNavigate();
 
   const cargarPedidos = async () => {
-    let data = await fetch('http://localhost:4000/v1/restaurante/pedidos/listar')
+    let data = await fetch('https://restaurante-back.vercel.app/v1/restaurante/pedidos/listar')
       .then(data => data.json())
       .then(res => res)
 
@@ -19,7 +19,7 @@ function CocinaHome({ user }) {
   }
 
   const cambiarEstadoPedido = (id) => {
-    const url = `http://localhost:4000/v1/restaurante/pedidos/actualizar-pedido/${id}`;
+    const url = `https://restaurante-back.vercel.app/v1/restaurante/pedidos/actualizar-pedido/${id}`;
 
     const data = {
       estado: "listo"
